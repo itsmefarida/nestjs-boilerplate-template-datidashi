@@ -27,6 +27,7 @@ import { MailerModule } from './mailer/mailer.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MongooseConfigService } from './database/mongoose-config.service';
 import { DatabaseConfig } from './database/config/database-config.type';
+import { FrontendController } from './frontend/frontend.controller';
 
 // <database-block>
 const infrastructureDatabaseModule = (databaseConfig() as DatabaseConfig)
@@ -43,6 +44,7 @@ const infrastructureDatabaseModule = (databaseConfig() as DatabaseConfig)
 // </database-block>
 
 @Module({
+  controllers: [FrontendController],
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
